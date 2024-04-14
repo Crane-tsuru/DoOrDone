@@ -11,14 +11,15 @@ struct CoinFlippingView: View {
     @State var isFlipping = false
     @State var isHeads = false
     @State var degreesToFlip: Int = 0
-    @State var tailsCount: Int = 0
-    @State var headsCount: Int = 0
+    
+    @ObservedObject var CoinTossData: CoinTossData
     
     var body: some View {
         VStack {
             VStack {
-                Text("Heads: \(headsCount)")
-                Text("Tails: \(tailsCount)")
+                if !CoinTossData.result.isEmpty {
+                    Label(CoinTossData.result, systemImage: isHeads ? "sparkles" : "exclamationmark.triangle")
+                }
             }
             
             Spacer()
@@ -28,18 +29,20 @@ struct CoinFlippingView: View {
                     axis: (x: CGFloat(0), y: CGFloat(10), z:CGFloat(0))
                 )
             Spacer()
-            Button("Flip Coin") {
-                Task {
-                    await flipCoin()
-                }
-            }
+            
         }.onAppear {
             Task {
                 await flipCoin()
             }
+            
+            if isHeads == true {
+                CoinTossData.result = "アタリ!"
+            } else {
+                CoinTossData.result = "ハズレ"
+            }
         }
         .fullScreenCover(isPresented: $isFlipping) {
-            ResultView(result: .constant("あたり"))
+            ResultView(result: CoinTossData.result)
         }
     }
     
@@ -59,8 +62,11 @@ struct CoinFlippingView: View {
     
     func headsOrTails() {
         let divisible = degreesToFlip / 180
-        (divisible % 2) == 0 ? (isHeads = false) : (isHeads = true)
-        isHeads == true ? (headsCount += 1 ) : (tailsCount += 1)
+        if CoinTossData.prediction == judgeMember[0] {
+            (divisible % 2) == 0 ? (isHeads = false) : (isHeads = true)
+        } else {
+            (divisible % 2) == 1 ? (isHeads = false) : (isHeads = true)
+        }
     }
     
     func reset() {
@@ -68,6 +74,6 @@ struct CoinFlippingView: View {
     }
 }
 
-#Preview {
-    CoinFlippingView()
-}
+//#Preview {
+//    CoinFlippingView(CoinTossData: CoinTossData(prediction: judgeMember[0]))
+//}
