@@ -10,10 +10,12 @@ import SwiftUI
 class CoinTossData: ObservableObject {
     var date: Date
     @Published var prediction: String
+    @Published var result: String
     
     init(prediction: String) {
         self.date = Date()
         self.prediction = prediction
+        self.result = ""
     }
 }
 

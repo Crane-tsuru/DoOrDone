@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
-    @Binding var result: String
+    var result: String
     
     @State var isHomeScreen = false
     @State var again = false
@@ -17,7 +17,7 @@ struct ResultView: View {
         VStack {
             Spacer()
             
-            Label(result, systemImage: "sparkles")
+            Label(result, systemImage: ("sparkles"))
                 .foregroundColor(.orange)
                 .font(.largeTitle)
                 .padding()
@@ -52,5 +52,5 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView(result: .constant("あたり"))
+    ResultView(result: "アタリ")
 }
