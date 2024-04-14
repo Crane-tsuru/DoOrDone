@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct CoinTossData {
+class CoinTossData: ObservableObject {
     var date: Date = Date()
     var prediction = ""
 }
 
 
 extension CoinTossData {
-    static var member = ["表", "裏"]
+    static var judgeMemver = ["表", "裏"]
+    
+    
 }
