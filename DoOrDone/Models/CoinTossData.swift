@@ -8,26 +8,23 @@
 import SwiftUI
 
 class CoinTossData: ObservableObject {
-    var date: Date
-    @Published var prediction: String
-    @Published var result: String
-    
-    init(prediction: String) {
-        self.date = Date()
-        self.prediction = prediction
-        self.result = ""
-    }
+    var date = Date()
+    @Published var prediction = true
+    @Published var result = ""
 }
 
 var judgeMember = ["表", "裏"]
+var resultWord = ["アタリ!", "ハズレ"]
 
 extension CoinTossData {
     
-    func judege(result: String) -> Bool {
-        if prediction == result {
-            return true
-        } else {
-            return false
-        }
-    }
+//    func judege(result: String) -> Bool {
+//        if prediction == result {
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
 }
+
+

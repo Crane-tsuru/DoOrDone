@@ -12,13 +12,13 @@ struct CoinFlippingView: View {
     @State var isHeads = false
     @State var degreesToFlip: Int = 0
     
-    @ObservedObject var CoinTossData: CoinTossData
+    @ObservedObject var coinTossData: CoinTossData
     
     var body: some View {
         VStack {
             VStack {
-                if !CoinTossData.result.isEmpty {
-                    Label(CoinTossData.result, systemImage: isHeads ? "sparkles" : "exclamationmark.triangle")
+                if !coinTossData.result.isEmpty {
+                    Label(coinTossData.result, systemImage: isHeads ? "sparkles" : "exclamationmark.triangle")
                 }
             }
             
@@ -33,16 +33,15 @@ struct CoinFlippingView: View {
         }.onAppear {
             Task {
                 await flipCoin()
-            }
-            
-            if isHeads == true {
-                CoinTossData.result = "アタリ!"
-            } else {
-                CoinTossData.result = "ハズレ"
+                if isHeads == true {
+                    coinTossData.result = resultWord[0]
+                } else {
+                    coinTossData.result = resultWord[1]
+                }
             }
         }
         .fullScreenCover(isPresented: $isFlipping) {
-            ResultView(result: CoinTossData.result)
+            ResultView(coinTossData: coinTossData)
         }
     }
     
@@ -62,7 +61,7 @@ struct CoinFlippingView: View {
     
     func headsOrTails() {
         let divisible = degreesToFlip / 180
-        if CoinTossData.prediction == judgeMember[0] {
+        if coinTossData.prediction {
             (divisible % 2) == 0 ? (isHeads = false) : (isHeads = true)
         } else {
             (divisible % 2) == 1 ? (isHeads = false) : (isHeads = true)
