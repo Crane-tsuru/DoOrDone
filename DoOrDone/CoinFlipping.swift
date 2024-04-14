@@ -29,14 +29,21 @@ struct CoinFlippingView: View {
                 )
             Spacer()
             Button("Flip Coin") {
-                flipCoin()
+                Task {
+                    await flipCoin()
+                }
             }
         }.onAppear {
-            flipCoin()
+            Task {
+                await flipCoin()
+            }
+        }
+        .fullScreenCover(isPresented: $isFlipping) {
+            ResultView(result: .constant("あたり"))
         }
     }
     
-    func flipCoin() {
+    func flipCoin() async {
         withAnimation {
             let randomNumber = Int.random(in: 5...6)
             if degreesToFlip > 1800000000 {
@@ -44,8 +51,10 @@ struct CoinFlippingView: View {
             }
             degreesToFlip = degreesToFlip + (randomNumber * 180)
             headsOrTails()
-            isFlipping.toggle()
         }
+        
+        try? await Task.sleep(nanoseconds: 2 * 1000 * 1000 * 1000)
+        isFlipping.toggle()
     }
     
     func headsOrTails() {
