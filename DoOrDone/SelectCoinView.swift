@@ -9,16 +9,13 @@ import SwiftUI
 
 struct SelectCoinView: View {
     @State var isfullCover = false
-    @State var prediction = ""
+    @ObservedObject var coinTossData = CoinTossData()
     
     var body: some View {
         VStack {
             Spacer()
             
             Button(action: {
-                Task {
-                    await prediction = Predict(prediction: judgeMember[0])
-                }
                 isfullCover = true
             }) {
                 RoundedRectangle(cornerRadius: 20)
@@ -32,7 +29,7 @@ struct SelectCoinView: View {
             
             Button(action: {
                 Task {
-                    await prediction = Predict(prediction: judgeMember[1])
+                    coinTossData.prediction.toggle()
                 }
                 isfullCover = true
             }) {
@@ -44,9 +41,7 @@ struct SelectCoinView: View {
                 
             Spacer()
         }.fullScreenCover(isPresented: $isfullCover) {
-            if !prediction.isEmpty {
-                CoinFlippingView(CoinTossData: CoinTossData(prediction: prediction))
-            }
+            CoinFlippingView(coinTossData: coinTossData)
         }
     }
 }

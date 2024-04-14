@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ResultView: View {
-    var result: String
-    
     @State var isHomeScreen = false
     @State var again = false
+    
+    @ObservedObject var coinTossData: CoinTossData
     
     var body: some View {
         VStack {
             Spacer()
             
-            Label(result, systemImage: ("sparkles"))
+            Label(coinTossData.result, systemImage: (coinTossData.result == resultWord[0]) ? "sparkles" : "exclamationmark.triangle")
                 .foregroundColor(.orange)
                 .font(.largeTitle)
                 .padding()
@@ -51,6 +51,6 @@ struct ResultView: View {
     }
 }
 
-#Preview {
-    ResultView(result: "アタリ")
-}
+//#Preview {
+//    ResultView(result: "アタリ")
+//}
