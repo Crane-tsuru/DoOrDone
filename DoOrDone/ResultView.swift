@@ -46,7 +46,7 @@ struct ResultView: View {
             ContentView()
         }
         .fullScreenCover(isPresented: $again) {
-            CoinFlippingView()
+            SelectCoinView()
         }
     }
 }

@@ -14,6 +14,8 @@ struct CoinFlippingView: View {
     @State var tailsCount: Int = 0
     @State var headsCount: Int = 0
     
+    @ObservedObject var CoinTossData: CoinTossData
+    
     var body: some View {
         VStack {
             VStack {
@@ -69,5 +71,5 @@ struct CoinFlippingView: View {
 }
 
 #Preview {
-    CoinFlippingView()
+    CoinFlippingView(CoinTossData: CoinTossData(prediction: judgeMember[0]))
 }
