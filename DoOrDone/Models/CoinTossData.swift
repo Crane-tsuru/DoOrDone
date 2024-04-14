@@ -31,7 +31,3 @@ extension CoinTossData {
         }
     }
 }
-
-func Predict(prediction: String) async -> String {
-    return prediction
-}

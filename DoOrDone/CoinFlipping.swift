@@ -29,6 +29,7 @@ struct CoinFlippingView: View {
                     axis: (x: CGFloat(0), y: CGFloat(10), z:CGFloat(0))
                 )
             Spacer()
+            
         }.onAppear {
             Task {
                 await flipCoin()
