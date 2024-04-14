@@ -9,12 +9,18 @@ import SwiftUI
 
 class CoinTossData: ObservableObject {
     var date: Date = Date()
-    var prediction = ""
+    @Published var prediction = ""
 }
 
 
 extension CoinTossData {
     static var judgeMemver = ["表", "裏"]
     
-    
+    func judege(yosou: String) -> Bool {
+        if yosou == prediction {
+            return true
+        } else {
+            return false
+        }
+    }
 }
