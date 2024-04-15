@@ -17,7 +17,8 @@ struct ResultView: View {
         VStack {
             Spacer()
             
-            Label(coinTossData.result, systemImage: (coinTossData.result == resultWord[0]) ? "sparkles" : "exclamationmark.triangle")
+            Label(((coinTossData.result == resultWord[0]) ? message[coinTossData.prediction]?[0] : message[coinTossData.prediction]?[1]) ?? "エラー",
+                  systemImage: (coinTossData.result == resultWord[0]) ? "sparkles" : "exclamationmark.triangle")
                 .foregroundColor(.orange)
                 .font(.largeTitle)
                 .padding()
@@ -39,7 +40,10 @@ struct ResultView: View {
                     .foregroundColor(.white)
             }.padding()
                 
-            Button(action: { again = true}) {
+            Button(action: {
+                coinTossData.resetCount += 1
+                again = true
+            }) {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.pink.gradient)
                     .frame(width: 200, height: 150)
@@ -53,7 +57,7 @@ struct ResultView: View {
             ContentView()
         }
         .fullScreenCover(isPresented: $again) {
-            SelectCoinView()
+            CoinFlippingView(coinTossData: coinTossData)
         }
     }
 }
