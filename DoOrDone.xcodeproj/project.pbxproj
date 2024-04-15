@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F324F4122BCD791C00CFFDBD /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324F4112BCD791C00CFFDBD /* DateFormat.swift */; };
 		F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */; };
 		F39E90802BCA38F50059CC41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907F2BCA38F50059CC41 /* ContentView.swift */; };
 		F39E90822BCA38F80059CC41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39E90812BCA38F80059CC41 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F324F4112BCD791C00CFFDBD /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		F39E907A2BCA38F50059CC41 /* DoOrDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoOrDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOrDoneApp.swift; sourceTree = "<group>"; };
 		F39E907F2BCA38F50059CC41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				F39E90AB2BCA3CD90059CC41 /* Coin.swift */,
 				F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */,
 				F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */,
+				F324F4112BCD791C00CFFDBD /* DateFormat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */,
 				F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */,
 				F39E90A82BCA3A820059CC41 /* SelectCoinView.swift in Sources */,
+				F324F4122BCD791C00CFFDBD /* DateFormat.swift in Sources */,
 				F39E90AE2BCA3CF00059CC41 /* CoinFlipping.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ struct DeleteButton: View {
     var body: some View {
         Button("削除") {
             Task {
-                await delete(id: "D7C48A2D-7061-42DE-A9FD-F57551A826E1")
+                await delete(id: "CCBD9EE3-CC3E-4C1B-BD8E-0D460BEE145B")
             }
         }
     }

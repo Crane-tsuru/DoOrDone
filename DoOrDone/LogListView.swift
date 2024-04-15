@@ -32,36 +32,40 @@ func LogDetailView(DBdata: DBData) -> some View {
     VStack(alignment: .leading) {
         
         Text(DBdata.date.description)
-        Text((DBdata.prediction == true) ? "前向き" : "後ろ向き")
+        Text((DBdata.prediction == true) ? "やりたい" : "やりたくない").bold()
         
-        if DBdata.prediction {
+        HStack {
             
-            if DBdata.result == resultWord[0] {
-                HStack {
+            if DBdata.prediction {
+                
+                if DBdata.result == resultWord[0] {
                     Image(systemName: "flame")
                         .foregroundColor(.red)
                     Text("やろう!")
+                    
+                } else {
+                    Label("やっぱりやめておこう…", systemImage: "hand.raised.fill")
                 }
+                
             } else {
-                Label("やっぱりやめておこう…", systemImage: "person.fill.exclamationmark")
-            }
-            
-        } else {
-            
-            if DBdata.result == resultWord[0] {
-                HStack {
+                
+                if DBdata.result == resultWord[0] {
+                    
                     Image(systemName: "xmark.circle.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.orange)
                     Text("やらなくていい！")
-                }
-            } else {
-                HStack {
+                
+                } else {
                     Image(systemName: "heart.fill")
                         .foregroundColor(.green)
                     Text("少しやってみたら?")
+                    
                 }
             }
             
+            Spacer()
+            
+            Text("リセット回数: \(DBdata.resetCount)")
         }
     }
 }

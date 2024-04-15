@@ -16,11 +16,6 @@ struct CoinFlippingView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                if !coinTossData.result.isEmpty {
-                    Label(coinTossData.result, systemImage: isHeads ? "sparkles" : "exclamationmark.triangle")
-                }
-            }
             
             Spacer()
             Coin(isFlipping: $isFlipping, isHeads: $isHeads)

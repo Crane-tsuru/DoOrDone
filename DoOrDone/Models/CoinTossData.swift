@@ -12,33 +12,37 @@ import FirebaseFirestore
 
 class CoinTossData: ObservableObject, Identifiable {
     let id = UUID()
-    var date = Date()
+    var date = dateFormat.string(from: Date())
     @Published var prediction = true
     @Published var result = ""
+    @Published var resetCount: Int = 0
     
     public func translateDataToDB() async -> DBData {
-        let DBdata =  DBData(id: id, date: date, prediction: prediction, result: result)
+        let DBdata =  DBData(id: id, date: date, prediction: prediction, result: result, resetCount: resetCount)
         return DBdata
     }
 }
 
 struct DBData: Codable, Identifiable {
     var id: UUID
-    var date: Date
+    var date: String
     var prediction: Bool
     var result: String
+    var resetCount: Int
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeys: CodingKey {
         case id
         case date
         case prediction
         case result
+        case resetCount
     }
 }
 
-var judgeMember = ["表", "裏"]
-var resultWord = ["アタリ!", "ハズレ"]
-var message = ["やってみよう！", "やっぱりやめておこう…", "やらなくていい！", "少しでいいから始めてみない？"]
+let judgeMember = ["表", "裏"]
+let resultWord = ["アタリ", "ハズレ"]
+let message: [Bool: [String]] = [true: ["やってみよう！", "やっぱりやめておこう…"],
+                                   false: ["やらなくていい！", "少しでいいから始めてみない？"]]
 
 
 let db = Firestore.firestore()
@@ -52,7 +56,8 @@ extension DBData {
                 "id": id.uuidString,
                 "date": date,
                 "prediction": prediction,
-                "result": result
+                "result": result,
+                "resetCount": resetCount
           ])
           print("Document successfully written!")
         } catch {
