@@ -20,6 +20,7 @@
 		F39E90AE2BCA3CF00059CC41 /* CoinFlipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */; };
 		F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */; };
 		F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B22BCA444B0059CC41 /* ResultView.swift */; };
+		F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */; };
 		F3EC867E2BCC980D000B94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */; };
 		F3EC86812BCC98D2000B94E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */; };
 		F3EC86832BCC98D2000B94E4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86822BCC98D2000B94E4 /* FirebaseFirestoreSwift */; };
@@ -59,6 +60,7 @@
 		F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFlipping.swift; sourceTree = "<group>"; };
 		F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTossData.swift; sourceTree = "<group>"; };
 		F39E90B22BCA444B0059CC41 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 		F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -156,6 +158,7 @@
 			children = (
 				F39E90AB2BCA3CD90059CC41 /* Coin.swift */,
 				F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */,
+				F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */,
 				F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */,
 				F39E90AC2BCA3CD90059CC41 /* Coin.swift in Sources */,
+				F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */,
 				F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */,
 				F39E90A82BCA3A820059CC41 /* SelectCoinView.swift in Sources */,
 				F39E90AE2BCA3CF00059CC41 /* CoinFlipping.swift in Sources */,

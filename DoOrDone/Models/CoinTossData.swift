@@ -9,7 +9,6 @@ import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
 
-let db = Firestore.firestore()
 
 class CoinTossData: ObservableObject, Identifiable {
     let id = UUID()
@@ -17,8 +16,8 @@ class CoinTossData: ObservableObject, Identifiable {
     @Published var prediction = true
     @Published var result = ""
     
-    public func translateDataToDB() -> DBData {
-        let DBdata = DBData(id: id, date: date, prediction: prediction, result: result)
+    public func translateDataToDB() async -> DBData {
+        let DBdata =  DBData(id: id, date: date, prediction: prediction, result: result)
         return DBdata
     }
 }
@@ -39,16 +38,21 @@ struct DBData: Codable, Identifiable {
 
 var judgeMember = ["表", "裏"]
 var resultWord = ["アタリ!", "ハズレ"]
+var message = ["やってみよう！", "やっぱりやめておこう…", "やらなくていい！", "少しでいいから始めてみない？"]
 
-extension CoinTossData {
+
+let db = Firestore.firestore()
+
+extension DBData {
     
-    func save(coinTossData: CoinTossData) async {
+    func save() async {
         // Add a new document in collection
         do {
-            try await db.collection("user").document(coinTossData.id.uuidString).setData([
-                "id": coinTossData.id,
-                "date": coinTossData.date,
-                "result": coinTossData.result
+            try await db.collection("user").document(id.uuidString).setData([
+                "id": id.uuidString,
+                "date": date,
+                "prediction": prediction,
+                "result": result
           ])
           print("Document successfully written!")
         } catch {
@@ -57,4 +61,27 @@ extension CoinTossData {
     }
 }
 
+func fetchMyData() async -> [DBData] {
+    var allData: [DBData] = []
+    
+    do {
+        let querySnapshot = try await db.collection("user").getDocuments()
+        for document in querySnapshot.documents {
+            try allData.append(document.data(as: DBData.self))
+        }
+        
+    } catch {
+        print(error)
+    }
+    
+    return allData
+}
 
+func delete(id: String) async {
+    do {
+      try await db.collection("user").document(id).delete()
+      print("Document successfully removed!")
+    } catch {
+      print("Error removing document: \(error)")
+    }
+}

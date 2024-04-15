@@ -24,7 +24,14 @@ struct ResultView: View {
                 
             Spacer()
                 
-            Button(action: { isHomeScreen = true}) {
+            Button(action: {
+                Task {
+                    async let DBdata = coinTossData.translateDataToDB()
+                    await DBdata.save()
+                    isHomeScreen = true
+                }
+                
+            }) {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(.blue.gradient)
                     .frame(width: 200, height: 150)
