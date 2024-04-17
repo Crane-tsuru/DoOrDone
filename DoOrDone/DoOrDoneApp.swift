@@ -6,6 +6,8 @@
 //
 import SwiftUI
 import FirebaseCore
+import FirebaseAuth
+import FirebaseFirestore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
@@ -25,7 +27,7 @@ struct DoOrDoneApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        ContentView()
+        AuthenticationView()
       }
     }
   }
