@@ -21,6 +21,7 @@
 		F39E90AE2BCA3CF00059CC41 /* CoinFlipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */; };
 		F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */; };
 		F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B22BCA444B0059CC41 /* ResultView.swift */; };
+		F39F9B652BD089A00002C0A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F39F9B642BD089A00002C0A5 /* FirebaseAuth */; };
 		F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */; };
 		F3EC867E2BCC980D000B94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */; };
 		F3EC86812BCC98D2000B94E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */; };
@@ -72,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EC86812BCC98D2000B94E4 /* FirebaseAnalytics in Frameworks */,
+				F39F9B652BD089A00002C0A5 /* FirebaseAuth in Frameworks */,
 				F3EC86832BCC98D2000B94E4 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -100,6 +102,7 @@
 				F39E908D2BCA38F80059CC41 /* DoOrDoneTests */,
 				F39E90972BCA38F80059CC41 /* DoOrDoneUITests */,
 				F39E907B2BCA38F50059CC41 /* Products */,
+				F39F9B632BD089A00002C0A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +169,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F39F9B632BD089A00002C0A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,6 +195,7 @@
 			packageProductDependencies = (
 				F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */,
 				F3EC86822BCC98D2000B94E4 /* FirebaseFirestoreSwift */,
+				F39F9B642BD089A00002C0A5 /* FirebaseAuth */,
 			);
 			productName = DoOrDone;
 			productReference = F39E907A2BCA38F50059CC41 /* DoOrDone.app */;
@@ -656,6 +667,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F39F9B642BD089A00002C0A5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3EC867F2BCC98D2000B94E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F3EC867F2BCC98D2000B94E4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
