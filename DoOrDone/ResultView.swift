@@ -54,7 +54,7 @@ struct ResultView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $isHomeScreen) {
-            ContentView()
+            HomeView()
         }
         .fullScreenCover(isPresented: $again) {
             CoinFlippingView(coinTossData: coinTossData)

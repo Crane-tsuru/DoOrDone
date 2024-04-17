@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
@@ -38,5 +39,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F324F4122BCD791C00CFFDBD /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324F4112BCD791C00CFFDBD /* DateFormat.swift */; };
 		F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */; };
-		F39E90802BCA38F50059CC41 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907F2BCA38F50059CC41 /* ContentView.swift */; };
+		F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907F2BCA38F50059CC41 /* HomeView.swift */; };
 		F39E90822BCA38F80059CC41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39E90812BCA38F80059CC41 /* Assets.xcassets */; };
 		F39E90852BCA38F80059CC41 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39E90842BCA38F80059CC41 /* Preview Assets.xcassets */; };
 		F39E908F2BCA38F80059CC41 /* DoOrDoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E908E2BCA38F80059CC41 /* DoOrDoneTests.swift */; };
@@ -22,8 +22,10 @@
 		F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */; };
 		F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B22BCA444B0059CC41 /* ResultView.swift */; };
 		F39F9B652BD089A00002C0A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F39F9B642BD089A00002C0A5 /* FirebaseAuth */; };
+		F39F9B672BD08CA40002C0A5 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */; };
+		F39F9B692BD08D8E0002C0A5 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */; };
+		F39F9B6D2BD090250002C0A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */; };
 		F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */; };
-		F3EC867E2BCC980D000B94E4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */; };
 		F3EC86812BCC98D2000B94E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */; };
 		F3EC86832BCC98D2000B94E4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86822BCC98D2000B94E4 /* FirebaseFirestoreSwift */; };
 /* End PBXBuildFile section */
@@ -49,7 +51,7 @@
 		F324F4112BCD791C00CFFDBD /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		F39E907A2BCA38F50059CC41 /* DoOrDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoOrDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOrDoneApp.swift; sourceTree = "<group>"; };
-		F39E907F2BCA38F50059CC41 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F39E907F2BCA38F50059CC41 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F39E90812BCA38F80059CC41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F39E90842BCA38F80059CC41 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F39E908A2BCA38F80059CC41 /* DoOrDoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoOrDoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +65,10 @@
 		F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFlipping.swift; sourceTree = "<group>"; };
 		F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTossData.swift; sourceTree = "<group>"; };
 		F39E90B22BCA444B0059CC41 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
-		F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,14 +123,16 @@
 		F39E907C2BCA38F50059CC41 /* DoOrDone */ = {
 			isa = PBXGroup;
 			children = (
-				F3EC867D2BCC980D000B94E4 /* GoogleService-Info.plist */,
+				F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */,
 				F39E90AF2BCA3D810059CC41 /* Models */,
 				F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */,
-				F39E907F2BCA38F50059CC41 /* ContentView.swift */,
+				F39E907F2BCA38F50059CC41 /* HomeView.swift */,
 				F39E90A72BCA3A820059CC41 /* SelectCoinView.swift */,
 				F39E90B22BCA444B0059CC41 /* ResultView.swift */,
 				F39E90A92BCA3BAB0059CC41 /* LogListView.swift */,
 				F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */,
+				F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */,
+				F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */,
 				F39E90812BCA38F80059CC41 /* Assets.xcassets */,
 				F39E90832BCA38F80059CC41 /* Preview Content */,
 			);
@@ -290,7 +296,7 @@
 			files = (
 				F39E90852BCA38F80059CC41 /* Preview Assets.xcassets in Resources */,
 				F39E90822BCA38F80059CC41 /* Assets.xcassets in Resources */,
-				F3EC867E2BCC980D000B94E4 /* GoogleService-Info.plist in Resources */,
+				F39F9B6D2BD090250002C0A5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +321,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F39E90802BCA38F50059CC41 /* ContentView.swift in Sources */,
+				F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */,
 				F39E90AA2BCA3BAB0059CC41 /* LogListView.swift in Sources */,
+				F39F9B692BD08D8E0002C0A5 /* AuthenticationView.swift in Sources */,
 				F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */,
 				F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */,
+				F39F9B672BD08CA40002C0A5 /* CreateUserView.swift in Sources */,
 				F39E90AC2BCA3CD90059CC41 /* Coin.swift in Sources */,
 				F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */,
 				F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */,
