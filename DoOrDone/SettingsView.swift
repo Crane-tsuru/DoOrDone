@@ -6,32 +6,52 @@
 //
 
 import SwiftUI
-import FirebaseAuth
-
 
 struct SettingsView: View {
-    @State var isLogout = false
+    @EnvironmentObject var coinColor: CoinColor
+    @State var changeHead = false
+    @State var changeTail = false
     
     var body: some View {
-        VStack {
-            Button(action: {
-                do {
-                    try Auth.auth().signOut()
-                    print("success")
-                    isLogout.toggle()
-                    
-                } catch let signOutError as NSError {
-                    print(signOutError)
+        NavigationView {
+            List {
+                Button(action: {
+                    changeHead = true
+                }) {
+                    HStack {
+                        Circle()
+                            .foregroundColor(coinColor.headColor)
+                            .frame(width: 20, height: 20)
+                        Text("コインの表の色")
+                            .foregroundStyle(coinColor.headColor)
+                    }
                 }
-            }) {
-                Label("ログアウト", systemImage: "arrowshape.turn.up.left")
+                
+                Button(action: {
+                    changeTail = true
+                }) {
+                    HStack {
+                        Circle()
+                            .foregroundColor(coinColor.tailColor)
+                            .frame(width: 20, height: 20)
+                        Text("コインの表の色")
+                            .foregroundStyle(coinColor.tailColor)
+                    }
+                }
             }
-        }.fullScreenCover(isPresented: $isLogout) {
-            AuthenticationView()
+            .navigationTitle("設定")
+            .sheet(isPresented: $changeHead) {
+                HeadsColorView(isHead: true)
+                    .environmentObject(CoinColor())
+            }
+            .sheet(isPresented: $changeTail) {
+                HeadsColorView(isHead: false)
+                    .environmentObject(CoinColor())
+            }
         }
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView().environmentObject(CoinColor())
 }

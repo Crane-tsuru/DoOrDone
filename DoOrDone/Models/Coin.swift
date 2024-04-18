@@ -24,6 +24,13 @@ struct Coin: View {
     }
 }
 
-//#Preview {
-//    Coin()
-//}
+class CoinColor: ObservableObject {
+    @Published var headColor = Color.green
+    @Published var tailColor = Color.orange
+    
+    func saveColor(isHead: Bool, color: Color) {
+        if isHead {
+            
+        }
+    }
+}

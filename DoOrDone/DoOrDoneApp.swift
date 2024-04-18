@@ -23,8 +23,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         // 認証情報の取得
         guard let user = authResult?.user else { return }
-        let isAnonymous = user.isAnonymous  // true
-        let uid = user.uid
+//        let isAnonymous = user.isAnonymous  // true
+//        let uid = user.uid
         return
     }
 
@@ -41,7 +41,7 @@ struct DoOrDoneApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        AuthenticationView()
+          AuthenticationView().environmentObject(CoinColor())
       }
     }
   }
