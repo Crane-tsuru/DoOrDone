@@ -172,8 +172,8 @@
 			children = (
 				F39E90AB2BCA3CD90059CC41 /* Coin.swift */,
 				F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */,
-				F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */,
 				F324F4112BCD791C00CFFDBD /* DateFormat.swift */,
+				F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

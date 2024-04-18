@@ -20,6 +20,7 @@ struct LogListView: View {
             if empty {
                 Text("コインを振ってみよう！\n結果を保存できます")
                     .font(.largeTitle)
+                    .padding()
             }
             
             if !authenticated {

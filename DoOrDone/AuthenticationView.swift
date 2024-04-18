@@ -40,6 +40,12 @@ struct AuthenticationView: View {
                             Text("ログイン")
                         }.padding()
                         
+                        Button(action: {
+                            
+                        }) {
+                            Text("匿名ログイン")
+                        }.padding()
+                        
                         NavigationLink(destination: PasswordResetView()) {
                             Text("パスワードリセット")
                         }

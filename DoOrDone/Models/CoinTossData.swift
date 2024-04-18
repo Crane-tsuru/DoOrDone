@@ -70,7 +70,7 @@ func fetchMyData(userID: String) async -> [DBData] {
     var allData: [DBData] = []
     
     do {
-        let querySnapshot = try await db.collection("user").getDocuments()
+        let querySnapshot = try await db.collection(userID).getDocuments()
         for document in querySnapshot.documents {
             try allData.append(document.data(as: DBData.self))
         }
@@ -82,9 +82,9 @@ func fetchMyData(userID: String) async -> [DBData] {
     return allData
 }
 
-func delete(id: String) async {
+func delete(collection: String, targetDocument: String) async {
     do {
-      try await db.collection("user").document(id).delete()
+      try await db.collection(collection).document(targetDocument).delete()
       print("Document successfully removed!")
     } catch {
       print("Error removing document: \(error)")
