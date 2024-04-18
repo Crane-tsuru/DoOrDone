@@ -19,7 +19,7 @@ struct CreateUserView: View {
     var body: some View {
         VStack {
             TextField("name", text: $name).padding().textFieldStyle(.roundedBorder)
-            TextField("email address", text: $email).padding().textFieldStyle(.roundedBorder)
+            TextField("mail address", text: $email).padding().textFieldStyle(.roundedBorder)
             TextField("password", text: $password).padding().textFieldStyle(.roundedBorder)
             
             Button(action: {

@@ -6,15 +6,25 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LogListView: View {
     @State var allData: [DBData] = []
+    let authenticated: Bool = (Auth.auth().currentUser != nil)
     
     var body: some View {
         VStack {
-            List {
-                ForEach(allData) {DBdata in
-                    LogDetailView(DBdata: DBdata)
+            
+            if !authenticated {
+                Text("履歴機能を使うには\nログインしてください")
+                    .bold()
+                    .font(.largeTitle)
+                    
+            } else {
+                List {
+                    ForEach(allData) {DBdata in
+                        LogDetailView(DBdata: DBdata)
+                    }
                 }
             }
         }
