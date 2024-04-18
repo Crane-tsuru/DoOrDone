@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct HomeView: View {
+    let authenticated: Bool = (Auth.auth().currentUser != nil)
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -29,7 +31,16 @@ struct HomeView: View {
                     Label("履歴", systemImage: "square.stack.3d.up.fill")
                         .font(.largeTitle)
                         .foregroundColor(.green)
-                }.padding()
+                        .opacity(authenticated ? 1.0 : 0.2)
+                }
+                .padding()
+                
+                NavigationLink(destination: SettingsView()) {
+                    Label("設定", systemImage: "gear")
+                        .font(.largeTitle)
+                        .foregroundColor(.gray)
+                }
+                .padding()
                 
                 Spacer()
             }

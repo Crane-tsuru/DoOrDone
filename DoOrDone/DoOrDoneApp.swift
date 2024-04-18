@@ -13,6 +13,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
+      
+    // アプリ起動時に匿名認証
+    Auth.auth().signInAnonymously() { (authResult, error) in
+        if error != nil{
+            print("Auth Error :\(error!.localizedDescription)")
+        }
+
+        
+        // 認証情報の取得
+        guard let user = authResult?.user else { return }
+        let isAnonymous = user.isAnonymous  // true
+        let uid = user.uid
+        return
+    }
 
     return true
   }
