@@ -49,10 +49,10 @@ let db = Firestore.firestore()
 
 extension DBData {
     
-    func save() async {
+    func save(userID: String) async {
         // Add a new document in collection
         do {
-            try await db.collection("user").document(id.uuidString).setData([
+            try await db.collection(userID).document(id.uuidString).setData([
                 "id": id.uuidString,
                 "date": date,
                 "prediction": prediction,
@@ -66,7 +66,7 @@ extension DBData {
     }
 }
 
-func fetchMyData() async -> [DBData] {
+func fetchMyData(userID: String) async -> [DBData] {
     var allData: [DBData] = []
     
     do {

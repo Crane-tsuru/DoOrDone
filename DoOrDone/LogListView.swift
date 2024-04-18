@@ -12,8 +12,15 @@ struct LogListView: View {
     @State var allData: [DBData] = []
     let authenticated: Bool = (Auth.auth().currentUser != nil)
     
+    @State var empty = false
+    
     var body: some View {
         VStack {
+            
+            if empty {
+                Text("コインを振ってみよう！\n結果を保存できます")
+                    .font(.largeTitle)
+            }
             
             if !authenticated {
                 Text("履歴機能を使うには\nログインしてください")
@@ -30,7 +37,13 @@ struct LogListView: View {
         }
         .onAppear {
             Task {
-                allData = await fetchMyData()
+                if let user = Auth.auth().currentUser {
+                    allData = await fetchMyData(userID: String(user.uid))
+                }
+                
+                if allData.isEmpty {
+                    empty = true
+                }
             }
         }
     }

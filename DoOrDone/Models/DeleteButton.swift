@@ -5,6 +5,8 @@
 //  Created by 鶴見駿 on 2024/04/15.
 //
 
+// not on App
+
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore

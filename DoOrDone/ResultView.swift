@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ResultView: View {
     @State var isHomeScreen = false
@@ -27,9 +28,11 @@ struct ResultView: View {
                 
             Button(action: {
                 Task {
-                    async let DBdata = coinTossData.translateDataToDB()
-                    await DBdata.save()
-                    isHomeScreen = true
+                    if let user = Auth.auth().currentUser {
+                        async let DBdata = coinTossData.translateDataToDB()
+                        await DBdata.save(userID: String(user.uid))
+                    }
+                    isHomeScreen.toggle()
                 }
                 
             }) {
