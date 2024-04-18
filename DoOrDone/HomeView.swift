@@ -35,6 +35,13 @@ struct HomeView: View {
                 }
                 .padding()
                 
+                NavigationLink(destination: SettingsView()) {
+                    Label("設定", systemImage: "gear")
+                        .font(.largeTitle)
+                        .foregroundColor(.gray)
+                }
+                .padding()
+                
                 Spacer()
             }
             .padding()
