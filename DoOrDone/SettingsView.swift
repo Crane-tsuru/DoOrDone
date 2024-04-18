@@ -6,11 +6,28 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
 
 struct SettingsView: View {
+    @State var isLogout = false
+    
     var body: some View {
         VStack {
-            Text("Settings")
+            Button(action: {
+                do {
+                    try Auth.auth().signOut()
+                    print("success")
+                    isLogout.toggle()
+                    
+                } catch let signOutError as NSError {
+                    print(signOutError)
+                }
+            }) {
+                Label("ログアウト", systemImage: "arrowshape.turn.up.left")
+            }
+        }.fullScreenCover(isPresented: $isLogout) {
+            AuthenticationView()
         }
     }
 }
