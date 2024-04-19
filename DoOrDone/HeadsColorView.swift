@@ -16,12 +16,20 @@ struct HeadsColorView: View {
     var body: some View {
         VStack {
             Circle()
-                .foregroundColor(isHead ?  coinColor.headColor : coinColor.tailColor)
+                .foregroundColor(myColor)
                 .frame(width: 100, height: 100)
             
-            ColorPicker("表の色", selection: isHead ? $coinColor.headColor : $coinColor.tailColor)
+            Spacer()
+            
+            ColorPicker("表の色", selection: $myColor)
                 .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Button(action: {
+                
+            }) {
+                Text("保存")
+            }.padding()
             
             Spacer()
         }

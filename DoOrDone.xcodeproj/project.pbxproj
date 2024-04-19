@@ -28,6 +28,7 @@
 		F39F9B6F2BD091980002C0A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B6E2BD091980002C0A5 /* SettingsView.swift */; };
 		F3A484AC2BD107960029AB1E /* HeadsColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A484AB2BD107960029AB1E /* HeadsColorView.swift */; };
 		F3CAE5D92BD22E620086763B /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAE5D82BD22E620086763B /* DatabaseModel.swift */; };
+		F3CAE5DB2BD2A2570086763B /* CoinColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAE5DA2BD2A2570086763B /* CoinColor.swift */; };
 		F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */; };
 		F3EC86812BCC98D2000B94E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86802BCC98D2000B94E4 /* FirebaseAnalytics */; };
 		F3EC86832BCC98D2000B94E4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F3EC86822BCC98D2000B94E4 /* FirebaseFirestoreSwift */; };
@@ -74,6 +75,7 @@
 		F39F9B6E2BD091980002C0A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F3A484AB2BD107960029AB1E /* HeadsColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadsColorView.swift; sourceTree = "<group>"; };
 		F3CAE5D82BD22E620086763B /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
+		F3CAE5DA2BD2A2570086763B /* CoinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinColor.swift; sourceTree = "<group>"; };
 		F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				F39E90AB2BCA3CD90059CC41 /* Coin.swift */,
+				F3CAE5DA2BD2A2570086763B /* CoinColor.swift */,
 				F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */,
 				F3CAE5D82BD22E620086763B /* DatabaseModel.swift */,
 				F324F4112BCD791C00CFFDBD /* DateFormat.swift */,
@@ -332,6 +335,7 @@
 			files = (
 				F3CAE5D92BD22E620086763B /* DatabaseModel.swift in Sources */,
 				F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */,
+				F3CAE5DB2BD2A2570086763B /* CoinColor.swift in Sources */,
 				F39E90AA2BCA3BAB0059CC41 /* LogListView.swift in Sources */,
 				F39F9B692BD08D8E0002C0A5 /* AuthenticationView.swift in Sources */,
 				F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */,

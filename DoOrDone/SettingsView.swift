@@ -55,12 +55,7 @@ struct SettingsView: View {
         }
         .onAppear {
             Task {
-                if let user = Auth.auth().currentUser {
-                    dbColor = await getDBColor(userID: String(user.uid))
-                    
-                    let headsColor = dbColor.getHeadsColor()
-                    let tailsColor = dbColor.getTailsColor()
-                }
+//                if let headsColor = 
             }
         }
     }
