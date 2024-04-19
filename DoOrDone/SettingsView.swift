@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct SettingsView: View {
     @EnvironmentObject var coinColor: CoinColor
+    
     @State var changeHead = false
     @State var changeTail = false
+    
+    @State var dbColor: DBColor = color_default()
     
     var body: some View {
         NavigationView {
@@ -20,10 +24,10 @@ struct SettingsView: View {
                 }) {
                     HStack {
                         Circle()
-                            .foregroundColor(coinColor.headColor)
+                            .foregroundColor(dbColor.getHeadsColor())
                             .frame(width: 20, height: 20)
                         Text("コインの表の色")
-                            .foregroundStyle(coinColor.headColor)
+                            .foregroundColor(dbColor.getHeadsColor())
                     }
                 }
                 
@@ -32,21 +36,31 @@ struct SettingsView: View {
                 }) {
                     HStack {
                         Circle()
-                            .foregroundColor(coinColor.tailColor)
+                            .foregroundColor(dbColor.getTailsColor())
                             .frame(width: 20, height: 20)
                         Text("コインの表の色")
-                            .foregroundStyle(coinColor.tailColor)
+                            .foregroundColor(dbColor.getTailsColor())
                     }
                 }
             }
             .navigationTitle("設定")
             .sheet(isPresented: $changeHead) {
-                HeadsColorView(isHead: true)
+                HeadsColorView(isHead: true, myColor: dbColor.getHeadsColor())
                     .environmentObject(CoinColor())
             }
             .sheet(isPresented: $changeTail) {
-                HeadsColorView(isHead: false)
+                HeadsColorView(isHead: false, myColor: dbColor.getTailsColor())
                     .environmentObject(CoinColor())
+            }
+        }
+        .onAppear {
+            Task {
+                if let user = Auth.auth().currentUser {
+                    dbColor = await getDBColor(userID: String(user.uid))
+                    
+                    let headsColor = dbColor.getHeadsColor()
+                    let tailsColor = dbColor.getTailsColor()
+                }
             }
         }
     }

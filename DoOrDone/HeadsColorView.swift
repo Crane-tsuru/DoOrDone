@@ -9,7 +9,9 @@ import SwiftUI
 
 struct HeadsColorView: View {
     @EnvironmentObject var coinColor: CoinColor
+    
     let isHead: Bool
+    @State var myColor: Color
     
     var body: some View {
         VStack {
@@ -27,5 +29,5 @@ struct HeadsColorView: View {
 }
 
 #Preview {
-    HeadsColorView(isHead: true) .environmentObject(CoinColor())
+    HeadsColorView(isHead: true, myColor: Color.green) .environmentObject(CoinColor())
 }
