@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         
         // 認証情報の取得
-        guard let user = authResult?.user else { return }
+//        guard let user = authResult?.user else { return }
 //        let isAnonymous = user.isAnonymous  // true
 //        let uid = user.uid
         return
