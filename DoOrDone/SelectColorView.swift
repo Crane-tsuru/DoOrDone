@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeadsColorView: View {
+struct SelectColorView: View {
     @EnvironmentObject var coinColor: CoinColor
     
     let isHead: Bool
@@ -37,5 +37,5 @@ struct HeadsColorView: View {
 }
 
 #Preview {
-    HeadsColorView(isHead: true, myColor: Color.green) .environmentObject(CoinColor())
+    SelectColorView(isHead: true, myColor: Color.green) .environmentObject(CoinColor())
 }

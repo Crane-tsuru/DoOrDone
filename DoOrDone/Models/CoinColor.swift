@@ -44,6 +44,7 @@ struct DBTailsColor: Codable {
     }
 }
 
+// Color -> DBHeadsColor
 func makeDBHeadsColorFromColor(myColor: Color) -> DBHeadsColor {
     guard let components = myColor.cgColor?.components, components.count > 2 else {
         return headsColor_default()
@@ -52,6 +53,7 @@ func makeDBHeadsColorFromColor(myColor: Color) -> DBHeadsColor {
     return DBHeadsColor(headsRed: components[0], headsGreen: components[1], headsBlue: components[2], headsAlpha: components[4])
 }
 
+// Color -> DBTaildColor
 func makeDBtTailsColorFromColor(myColor: Color) -> DBTailsColor {
     guard let components = myColor.cgColor?.components, components.count > 2 else {
         return tailsColor_default()
@@ -59,6 +61,7 @@ func makeDBtTailsColorFromColor(myColor: Color) -> DBTailsColor {
     
     return DBTailsColor(tailsRed: components[0], tailsGreen: components[1], tailsBlue: components[2], tailsAlpha: components[3])
 }
+
 
 let collectionName_Color = "color"
 
@@ -91,6 +94,8 @@ func saveTailsColor(userID: String, red: CGFloat, green: CGFloat, blue: CGFloat,
     }
 }
 
+
+// get HeadsColor from firestore
 func fetchHeadsColor(userID: String) async -> DBHeadsColor {
     var myHeadsColor: DBHeadsColor = headsColor_default()
     let docRef = db.collection(collectionName_Color).document(userID)
@@ -104,6 +109,7 @@ func fetchHeadsColor(userID: String) async -> DBHeadsColor {
     return myHeadsColor
 }
 
+// get TailsColor from firestore
 func fetchTailsColor(userID: String) async -> DBTailsColor {
     var myTailsColor: DBTailsColor = tailsColor_default()
     let docRef = db.collection(collectionName_Color).document(userID)

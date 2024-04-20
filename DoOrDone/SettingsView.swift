@@ -14,7 +14,10 @@ struct SettingsView: View {
     @State var changeHead = false
     @State var changeTail = false
     
-    @State var dbColor: DBColor = color_default()
+    @State var headsColor = Color(red: 0, green: 0, blue: 0, opacity: 1)
+    
+    @State var tailsColor = Color(red: 1, green: 1, blue: 1, opacity: 1)
+
     
     var body: some View {
         NavigationView {
@@ -24,10 +27,10 @@ struct SettingsView: View {
                 }) {
                     HStack {
                         Circle()
-                            .foregroundColor(dbColor.getHeadsColor())
+                            .foregroundColor(headsColor)
                             .frame(width: 20, height: 20)
                         Text("コインの表の色")
-                            .foregroundColor(dbColor.getHeadsColor())
+                            .foregroundColor(headsColor)
                     }
                 }
                 
@@ -36,26 +39,34 @@ struct SettingsView: View {
                 }) {
                     HStack {
                         Circle()
-                            .foregroundColor(dbColor.getTailsColor())
+                            .foregroundColor(tailsColor)
                             .frame(width: 20, height: 20)
                         Text("コインの表の色")
-                            .foregroundColor(dbColor.getTailsColor())
+                            .foregroundColor(tailsColor)
                     }
                 }
             }
             .navigationTitle("設定")
             .sheet(isPresented: $changeHead) {
-                HeadsColorView(isHead: true, myColor: dbColor.getHeadsColor())
+                SelectColorView(isHead: true, myColor: headsColor)
                     .environmentObject(CoinColor())
             }
             .sheet(isPresented: $changeTail) {
-                HeadsColorView(isHead: false, myColor: dbColor.getTailsColor())
+                SelectColorView(isHead: false, myColor: tailsColor)
                     .environmentObject(CoinColor())
             }
         }
         .onAppear {
             Task {
-//                if let headsColor = 
+                if let user = Auth.auth().currentUser  {
+                    let DBHeadsColor = await fetchHeadsColor(userID: String(user.uid))
+                    
+                    let DBTailsColor = await fetchTailsColor(userID: String(user.uid))
+                    
+                    headsColor = DBHeadsColor.translateDBColorToColor()
+                    
+                    tailsColor = DBTailsColor.translateDBColorToColor()
+                }
             }
         }
     }
