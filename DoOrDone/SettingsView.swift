@@ -14,9 +14,9 @@ struct SettingsView: View {
     @State var changeHead = false
     @State var changeTail = false
     
-    @State var headsColor = Color(red: 0, green: 0, blue: 0, opacity: 1)
+    @State var headsColor = Color(red: 0, green: 0, blue: 0, opacity: 0.5)
     
-    @State var tailsColor = Color(red: 1, green: 1, blue: 1, opacity: 1)
+    @State var tailsColor = Color(red: 1, green: 1, blue: 1, opacity: 0.5)
 
     
     var body: some View {

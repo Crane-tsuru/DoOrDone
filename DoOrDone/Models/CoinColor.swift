@@ -25,7 +25,7 @@ struct DBHeadsColor: Codable {
     var headsRed: CGFloat
     var headsGreen: CGFloat
     var headsBlue: CGFloat
-    var headsAlpha: Double
+    var headsAlpha: CGFloat
     
     func translateDBColorToColor() -> Color {
         return Color(red: headsRed, green: headsGreen, blue: headsBlue, opacity: headsAlpha)
@@ -33,10 +33,10 @@ struct DBHeadsColor: Codable {
 }
 
 struct DBTailsColor: Codable {
-    var tailsRed: Double
-    var tailsGreen: Double
-    var tailsBlue: Double
-    var tailsAlpha: Double
+    var tailsRed: CGFloat
+    var tailsGreen: CGFloat
+    var tailsBlue: CGFloat
+    var tailsAlpha: CGFloat
 
     
     func translateDBColorToColor() -> Color {
@@ -50,7 +50,7 @@ func makeDBHeadsColorFromColor(myColor: Color) -> DBHeadsColor {
         return headsColor_default()
     }
     
-    return DBHeadsColor(headsRed: components[0], headsGreen: components[1], headsBlue: components[2], headsAlpha: components[4])
+    return DBHeadsColor(headsRed: components[0], headsGreen: components[1], headsBlue: components[2], headsAlpha: components[3])
 }
 
 // Color -> DBTaildColor
@@ -66,13 +66,13 @@ func makeDBtTailsColorFromColor(myColor: Color) -> DBTailsColor {
 let collectionName_Color = "color"
 
 
-func saveHeadsColor(userID: String, red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) async {
+func saveHeadsColor(userID: String, dbHeadsColor: DBHeadsColor) async {
     do {
         try await db.collection(collectionName_Color).document(userID).setData([
-            "headsRed": red,
-            "headsGreen": green,
-            "headsBlue": blue,
-            "headsAlpha": opacity
+            "headsRed": dbHeadsColor.headsRed,
+            "headsGreen": dbHeadsColor.headsGreen,
+            "headsBlue": dbHeadsColor.headsBlue,
+            "headsAlpha": dbHeadsColor.headsAlpha
         ])
         print("Document successfully written!")
     } catch {
@@ -80,13 +80,13 @@ func saveHeadsColor(userID: String, red: CGFloat, green: CGFloat, blue: CGFloat,
     }
 }
 
-func saveTailsColor(userID: String, red: CGFloat, green: CGFloat, blue: CGFloat, opacity: CGFloat) async {
+func saveTailsColor(userID: String, dbTailsColor: DBTailsColor) async {
     do {
         try await db.collection(collectionName_Color).document(userID).setData([
-            "tailsRed": red,
-            "tailsGreen": green,
-            "tailsBlue": blue,
-            "tailsAlpha": opacity
+            "tailsRed": dbTailsColor.tailsRed,
+            "tailsGreen": dbTailsColor.tailsGreen,
+            "tailsBlue": dbTailsColor.tailsBlue,
+            "tailsAlpha": dbTailsColor.tailsAlpha
         ])
         print("Document successfully written!")
     } catch {
