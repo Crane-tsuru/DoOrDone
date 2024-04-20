@@ -63,12 +63,13 @@ func makeDBtTailsColorFromColor(myColor: Color) -> DBTailsColor {
 }
 
 
-let collectionName_Color = "color"
+let collectionName_headsColor = "headsColor"
+let collectionName_tailsColor = "tailsColor"
 
 
 func saveHeadsColor(userID: String, dbHeadsColor: DBHeadsColor) async {
     do {
-        try await db.collection(collectionName_Color).document(userID).setData([
+        try await db.collection(collectionName_headsColor).document(userID).setData([
             "headsRed": dbHeadsColor.headsRed,
             "headsGreen": dbHeadsColor.headsGreen,
             "headsBlue": dbHeadsColor.headsBlue,
@@ -82,7 +83,7 @@ func saveHeadsColor(userID: String, dbHeadsColor: DBHeadsColor) async {
 
 func saveTailsColor(userID: String, dbTailsColor: DBTailsColor) async {
     do {
-        try await db.collection(collectionName_Color).document(userID).setData([
+        try await db.collection(collectionName_tailsColor).document(userID).setData([
             "tailsRed": dbTailsColor.tailsRed,
             "tailsGreen": dbTailsColor.tailsGreen,
             "tailsBlue": dbTailsColor.tailsBlue,
@@ -98,7 +99,7 @@ func saveTailsColor(userID: String, dbTailsColor: DBTailsColor) async {
 // get HeadsColor from firestore
 func fetchHeadsColor(userID: String) async -> DBHeadsColor {
     var myHeadsColor: DBHeadsColor = headsColor_default()
-    let docRef = db.collection(collectionName_Color).document(userID)
+    let docRef = db.collection(collectionName_headsColor).document(userID)
     
     do {
         myHeadsColor = try await docRef.getDocument(as: DBHeadsColor.self)
@@ -112,7 +113,7 @@ func fetchHeadsColor(userID: String) async -> DBHeadsColor {
 // get TailsColor from firestore
 func fetchTailsColor(userID: String) async -> DBTailsColor {
     var myTailsColor: DBTailsColor = tailsColor_default()
-    let docRef = db.collection(collectionName_Color).document(userID)
+    let docRef = db.collection(collectionName_tailsColor).document(userID)
     
     do {
         myTailsColor = try await docRef.getDocument(as: DBTailsColor.self)
