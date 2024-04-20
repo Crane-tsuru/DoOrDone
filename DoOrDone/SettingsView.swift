@@ -41,7 +41,7 @@ struct SettingsView: View {
                         Circle()
                             .foregroundColor(tailsColor)
                             .frame(width: 20, height: 20)
-                        Text("コインの表の色")
+                        Text("コインの裏の色")
                             .foregroundColor(tailsColor)
                     }
                 }

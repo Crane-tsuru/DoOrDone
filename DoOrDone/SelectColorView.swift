@@ -23,11 +23,15 @@ struct SelectColorView: View {
             Circle()
                 .foregroundColor(myColor)
                 .frame(width: 100, height: 100)
+                .padding()
             
             Spacer()
             
-            ColorPicker("表の色", selection: $myColor)
+            ColorPicker(isHead ? "表面の色" : "裏面の色", selection: $myColor)
                 .padding()
+            
+            Spacer()
+                
             
             Button(action: {
                 Task {
