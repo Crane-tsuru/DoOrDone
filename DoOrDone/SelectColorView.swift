@@ -15,7 +15,8 @@ struct SelectColorView: View {
     @State var myColor: Color
     let user = Auth.auth().currentUser
     
-    
+    @State var isBack = false
+    @State var isAlert = false
     
     var body: some View {
         VStack {
@@ -35,6 +36,7 @@ struct SelectColorView: View {
                     } else {
                         await saveTailsColor(userID: String(user!.uid), dbTailsColor: makeDBtTailsColorFromColor(myColor: myColor))
                     }
+                    isAlert = true
                 }
             }) {
                 RoundedRectangle(cornerRadius: 20)
@@ -48,6 +50,12 @@ struct SelectColorView: View {
             .padding()
             
             Spacer()
+        }
+        .alert(isPresented: $isAlert) {
+            Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: {isBack = true}))
+        }
+        .fullScreenCover(isPresented: $isBack) {
+            SettingsView()
         }
     }
 }
