@@ -15,15 +15,26 @@ struct SelectColorView: View {
     @State var myColor: Color
     let user = Auth.auth().currentUser
     
-    @State var isBack = false
-    @State var isAlert = false
+    @State var isBack = false // flag to go SettingsView
+    @State var isAlert = false // flag to show alert
     
     var body: some View {
         VStack {
-            Circle()
-                .foregroundColor(myColor)
-                .frame(width: 100, height: 100)
-                .padding()
+            HStack {
+                VStack(alignment: .center) {
+                    Circle()
+                        .foregroundColor(myColor)
+                        .frame(width: 100, height: 100)
+                    .padding()
+                }
+                
+                VStack(alignment: .trailing) {
+                    Circle()
+                        .foregroundColor(isHead ? coinColor.headsColor : coinColor.tailsColor)
+                        .frame(width: 50, height: 50)
+                    .padding()
+                }
+            }
             
             Spacer()
             
@@ -43,7 +54,7 @@ struct SelectColorView: View {
                     }
                     
                     if user != nil {
-                        await coinColor.getMyColor_DB(userID: String(user!.uid))
+                        await coinColor.getMyColor_DB()
                     }
                     
                     isAlert = true

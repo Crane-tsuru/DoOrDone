@@ -1,15 +1,22 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 class CoinColor: ObservableObject {
-    @Published var headsColor = Color.green
-    @Published var tailsColor = Color.orange
+    @Published var headsColor = headsColor_default().translateDBColorToColor()
+    @Published var tailsColor = tailsColor_default().translateDBColorToColor()
     
-    func getMyColor_DB(userID: String) async {
-        Task {
-            headsColor = await fetchHeadsColor(userID: userID).translateDBColorToColor()
-            tailsColor = await fetchTailsColor(userID: userID).translateDBColorToColor()
+    
+    func getMyColor_DB() async {
+        DispatchQueue.main.async {
+            guard let user = Auth.auth().currentUser else { return }
+            
+            Task {
+                self.headsColor = await fetchHeadsColor(userID: String(user.uid)).translateDBColorToColor()
+                self.tailsColor = await fetchTailsColor(userID: String(user.uid)).translateDBColorToColor()
+            }
+
         }
     }
 }

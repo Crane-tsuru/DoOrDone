@@ -23,7 +23,6 @@
 		F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E90B22BCA444B0059CC41 /* ResultView.swift */; };
 		F39F9B652BD089A00002C0A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F39F9B642BD089A00002C0A5 /* FirebaseAuth */; };
 		F39F9B672BD08CA40002C0A5 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */; };
-		F39F9B692BD08D8E0002C0A5 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */; };
 		F39F9B6D2BD090250002C0A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */; };
 		F39F9B6F2BD091980002C0A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B6E2BD091980002C0A5 /* SettingsView.swift */; };
 		F3A484AC2BD107960029AB1E /* SelectColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A484AB2BD107960029AB1E /* SelectColorView.swift */; };
@@ -70,7 +69,6 @@
 		F39E90B02BCA3D9D0059CC41 /* CoinTossData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTossData.swift; sourceTree = "<group>"; };
 		F39E90B22BCA444B0059CC41 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
-		F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F39F9B6E2BD091980002C0A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F3A484AB2BD107960029AB1E /* SelectColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorView.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				F39E90A92BCA3BAB0059CC41 /* LogListView.swift */,
 				F39E90AD2BCA3CF00059CC41 /* CoinFlipping.swift */,
 				F39F9B662BD08CA40002C0A5 /* CreateUserView.swift */,
-				F39F9B682BD08D8E0002C0A5 /* AuthenticationView.swift */,
 				F39F9B6E2BD091980002C0A5 /* SettingsView.swift */,
 				F3A484AB2BD107960029AB1E /* SelectColorView.swift */,
 				F39E90812BCA38F80059CC41 /* Assets.xcassets */,
@@ -337,7 +334,6 @@
 				F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */,
 				F3CAE5DB2BD2A2570086763B /* CoinColor.swift in Sources */,
 				F39E90AA2BCA3BAB0059CC41 /* LogListView.swift in Sources */,
-				F39F9B692BD08D8E0002C0A5 /* AuthenticationView.swift in Sources */,
 				F39E90B12BCA3D9D0059CC41 /* CoinTossData.swift in Sources */,
 				F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */,
 				F39F9B672BD08CA40002C0A5 /* CreateUserView.swift in Sources */,
