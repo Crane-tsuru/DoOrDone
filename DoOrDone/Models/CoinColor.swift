@@ -3,23 +3,17 @@ import FirebaseCore
 import FirebaseFirestore
 
 class CoinColor: ObservableObject {
-    @Published var headColor = Color.green
-    @Published var tailColor = Color.orange
+    @Published var headsColor = headsColor_default().translateDBColorToColor()
+    @Published var tailsColor = tailsColor_default().translateDBColorToColor()
     
-    func saveColor(isHead: Bool, color: Color) {
-        if isHead {
-            
+    func getMyColor_DB(userID: String) async {
+        Task {
+            headsColor = await fetchHeadsColor(userID: userID).translateDBColorToColor()
+            tailsColor = await fetchTailsColor(userID: userID).translateDBColorToColor()
         }
     }
 }
 
-func headsColor_default() -> DBHeadsColor {
-    return DBHeadsColor(headsRed: 0, headsGreen: 1, headsBlue: 0, headsAlpha: 0.5)
-}
-
-func tailsColor_default() -> DBTailsColor {
-    return DBTailsColor(tailsRed: 0, tailsGreen: 0, tailsBlue: 1, tailsAlpha: 0.5)
-}
 
 struct DBHeadsColor: Codable {
     var headsRed: CGFloat
@@ -42,6 +36,16 @@ struct DBTailsColor: Codable {
     func translateDBColorToColor() -> Color {
         return Color(red: tailsRed, green: tailsGreen, blue: tailsBlue, opacity: tailsAlpha)
     }
+}
+
+
+// first value
+func headsColor_default() -> DBHeadsColor {
+    return DBHeadsColor(headsRed: 0, headsGreen: 1, headsBlue: 0, headsAlpha: 0.5)
+}
+
+func tailsColor_default() -> DBTailsColor {
+    return DBTailsColor(tailsRed: 0, tailsGreen: 0, tailsBlue: 1, tailsAlpha: 0.5)
 }
 
 // Color -> DBHeadsColor

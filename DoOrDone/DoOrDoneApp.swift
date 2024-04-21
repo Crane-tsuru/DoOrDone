@@ -22,9 +22,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         
         // 認証情報の取得
-//        guard let user = authResult?.user else { return }
-//        let isAnonymous = user.isAnonymous  // true
-//        let uid = user.uid
         return
     }
 
@@ -36,12 +33,18 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct DoOrDoneApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+  var coinColor = CoinColor()
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-          AuthenticationView().environmentObject(CoinColor())
+          AuthenticationView().environmentObject(coinColor)
+      }.onAppear {
+          Task {
+              if let user = Auth.auth().currentUser {
+                  await coinColor.getMyColor_DB(userID: String(user.uid))
+              }
+          }
       }
     }
   }

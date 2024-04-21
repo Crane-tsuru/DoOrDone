@@ -11,6 +11,8 @@ struct SelectCoinView: View {
     @State var isfullCover = false
     @ObservedObject var coinTossData = CoinTossData()
     
+    @EnvironmentObject var coinColor: CoinColor
+    
     var body: some View {
         VStack {
             Spacer()
@@ -19,7 +21,7 @@ struct SelectCoinView: View {
                 isfullCover = true
             }) {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(.orange.gradient)
+                    .fill(coinColor.headsColor.gradient)
                     .frame(width: 200, height: 150)
                     .overlay(Text(judgeMember[0]).font(.title))
                     .foregroundColor(.white)
@@ -34,7 +36,7 @@ struct SelectCoinView: View {
                 isfullCover = true
             }) {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(.green.gradient)
+                    .fill(coinColor.tailsColor.gradient)
                     .frame(width: 200, height:  150)
                     .overlay(Text(judgeMember[1]).font(.title).foregroundColor(.white))
             }
@@ -47,5 +49,5 @@ struct SelectCoinView: View {
 }
 
 #Preview {
-    SelectCoinView()
+    SelectCoinView().environmentObject(CoinColor())
 }
