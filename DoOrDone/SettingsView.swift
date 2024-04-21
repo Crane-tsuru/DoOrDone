@@ -45,11 +45,11 @@ struct SettingsView: View {
             .navigationTitle("設定")
             .sheet(isPresented: $changeHead) {
                 SelectColorView(isHead: true, myColor: coinColor.headsColor)
-                    .environmentObject(CoinColor())
+                    .environmentObject(coinColor)
             }
             .sheet(isPresented: $changeTail) {
                 SelectColorView(isHead: false, myColor: coinColor.tailsColor)
-                    .environmentObject(CoinColor())
+                    .environmentObject(coinColor)
             }
         }
     }

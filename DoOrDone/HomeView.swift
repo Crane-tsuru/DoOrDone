@@ -37,7 +37,7 @@ struct HomeView: View {
                 }
                 .padding()
                 
-                NavigationLink(destination: SettingsView()) {
+                NavigationLink(destination: SettingsView().environmentObject(coinColor)) {
                     Label("設定", systemImage: "gearshape")
                         .font(.largeTitle)
                         .foregroundColor(.gray)

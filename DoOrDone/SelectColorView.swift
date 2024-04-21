@@ -20,21 +20,22 @@ struct SelectColorView: View {
     
     var body: some View {
         VStack {
-            HStack {
-                VStack(alignment: .center) {
-                    Circle()
-                        .foregroundColor(myColor)
-                        .frame(width: 100, height: 100)
+            VStack(alignment: .center) {
+                Circle()
+                    .foregroundColor(myColor)
+                    .frame(width: 100, height: 100)
                     .padding()
-                }
-                
-                VStack(alignment: .trailing) {
-                    Circle()
-                        .foregroundColor(isHead ? coinColor.headsColor : coinColor.tailsColor)
-                        .frame(width: 50, height: 50)
-                    .padding()
-                }
             }
+            
+            HStack {
+                Text(isHead ? "裏面の色" : "表面の色")
+                
+                Circle()
+                    .foregroundColor(isHead ? coinColor.headsColor : coinColor.tailsColor)
+                    .frame(width: 25, height: 25)
+                    .padding()
+            }
+            
             
             Spacer()
             
