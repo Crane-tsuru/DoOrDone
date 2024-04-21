@@ -3,8 +3,8 @@ import FirebaseCore
 import FirebaseFirestore
 
 class CoinColor: ObservableObject {
-    @Published var headsColor = headsColor_default().translateDBColorToColor()
-    @Published var tailsColor = tailsColor_default().translateDBColorToColor()
+    @Published var headsColor = Color.green
+    @Published var tailsColor = Color.orange
     
     func getMyColor_DB(userID: String) async {
         Task {
