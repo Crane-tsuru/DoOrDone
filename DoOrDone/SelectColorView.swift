@@ -33,6 +33,7 @@ struct SelectColorView: View {
             Spacer()
                 
             
+            // disable button when user == nil
             Button(action: {
                 Task {
                     if isHead {
@@ -40,6 +41,11 @@ struct SelectColorView: View {
                     } else {
                         await saveTailsColor(userID: String(user!.uid), dbTailsColor: makeDBtTailsColorFromColor(myColor: myColor))
                     }
+                    
+                    if user != nil {
+                        await coinColor.getMyColor_DB(userID: String(user!.uid))
+                    }
+                    
                     isAlert = true
                 }
             }) {
@@ -59,7 +65,7 @@ struct SelectColorView: View {
             Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: {isBack = true}))
         }
         .fullScreenCover(isPresented: $isBack) {
-            SettingsView()
+            SettingsView().environmentObject(coinColor)
         }
     }
 }
