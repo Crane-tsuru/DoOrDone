@@ -14,7 +14,6 @@ struct HomeView: View {
     @EnvironmentObject var coinColor: CoinColor
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Do or Done!")
                     .font(.largeTitle)
@@ -52,7 +51,6 @@ struct HomeView: View {
                 Spacer()
             }
             .padding()
-        }
     }
 }
 
