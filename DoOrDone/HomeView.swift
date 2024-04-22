@@ -29,13 +29,18 @@ struct HomeView: View {
                         .overlay(Text("コイントス").font(.largeTitle).foregroundColor(.white))
                 }.padding()
                 
+                Spacer()
+                
                 NavigationLink(destination: LogListView()) {
                     Label("履歴", systemImage: "square.stack.3d.up.fill")
                         .font(.largeTitle)
                         .foregroundColor(.green)
                         .opacity(authenticated ? 1.0 : 0.2)
                 }
+                .scaleEffect(1.5)
                 .padding()
+                
+                Spacer()
                 
                 NavigationLink(destination: SettingsView().environmentObject(coinColor)) {
                     Label("設定", systemImage: "gearshape")

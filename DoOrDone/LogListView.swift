@@ -17,18 +17,18 @@ struct LogListView: View {
     var body: some View {
         VStack {
             
-            if empty {
-                Text("コインを振ってみよう！\n結果を保存できます")
-                    .font(.largeTitle)
-                    .padding()
-            }
-            
             if !authenticated {
                 Text("履歴機能を使うには\nログインしてください")
                     .bold()
                     .font(.largeTitle)
                     
             } else {
+                if empty {
+                    Text("コインを振ってみよう！\n結果を保存できます")
+                        .font(.largeTitle)
+                        .padding()
+                }
+                
                 List {
                     ForEach(allData) {DBdata in
                         LogDetailView(DBdata: DBdata)
