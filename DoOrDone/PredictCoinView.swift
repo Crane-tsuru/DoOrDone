@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectCoinView: View {
+struct PredictCoinView: View {
     @State var isfullCover = false
     @ObservedObject var coinTossData = CoinTossData()
     
@@ -43,11 +43,11 @@ struct SelectCoinView: View {
                 
             Spacer()
         }.fullScreenCover(isPresented: $isfullCover) {
-            CoinFlippingView(coinTossData: coinTossData)
+            CoinFlippingView(coinTossData: coinTossData).environmentObject(coinColor)
         }
     }
 }
 
 #Preview {
-    SelectCoinView().environmentObject(CoinColor())
+    PredictCoinView().environmentObject(CoinColor())
 }

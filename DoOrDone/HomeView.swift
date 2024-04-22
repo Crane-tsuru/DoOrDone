@@ -22,7 +22,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SelectCoinView().environmentObject(coinColor)) {
+                NavigationLink(destination: PredictCoinView().environmentObject(coinColor)) {
                     Capsule()
                         .frame(width: 200, height: 120)
                         .tint(.pink)

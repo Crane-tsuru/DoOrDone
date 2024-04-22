@@ -14,15 +14,19 @@ struct Coin: View {
     @Binding var isFlipping: Bool
     @Binding var isHeads: Bool
     
+    @EnvironmentObject var coinColor: CoinColor
+    
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(isHeads ? .gray : .orange)
-                .frame(width: 100, height: 100)
+                .stroke(lineWidth: 5)
+                .foregroundColor(isHeads ? .gray : .black)
+                .frame(width: 95, height: 95)
             
             Circle()
-                .foregroundColor(isHeads ? .green: .yellow)
+                .foregroundColor(isHeads ? coinColor.headsColor : coinColor.tailsColor)
                 .frame(width: 90, height: 90)
+                .zIndex(1.0)
         }
     }
 }

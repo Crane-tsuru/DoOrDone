@@ -15,7 +15,6 @@ struct SelectColorView: View {
     @State var myColor: Color
     let user = Auth.auth().currentUser
     
-    @State var isBack = false // flag to go SettingsView
     @State var isAlert = false // flag to show alert
     
     var body: some View {
@@ -31,7 +30,7 @@ struct SelectColorView: View {
                 Text(isHead ? "裏面の色" : "表面の色")
                 
                 Circle()
-                    .foregroundColor(isHead ? coinColor.headsColor : coinColor.tailsColor)
+                    .foregroundColor(isHead ? coinColor.tailsColor : coinColor.headsColor)
                     .frame(width: 25, height: 25)
                     .padding()
             }
@@ -39,7 +38,7 @@ struct SelectColorView: View {
             
             Spacer()
             
-            ColorPicker(isHead ? "表面の色" : "裏面の色", selection: $myColor)
+            ColorPicker(isHead ? "表面の色を編集" : "裏面の色を編集", selection: $myColor)
                 .padding()
             
             Spacer()
@@ -74,10 +73,7 @@ struct SelectColorView: View {
             Spacer()
         }
         .alert(isPresented: $isAlert) {
-            Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: {isBack = true}))
-        }
-        .fullScreenCover(isPresented: $isBack) {
-            SettingsView().environmentObject(coinColor)
+            Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: {}))
         }
     }
 }

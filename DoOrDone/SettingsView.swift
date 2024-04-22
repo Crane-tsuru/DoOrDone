@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseAuth
 
 struct SettingsView: View {
     @EnvironmentObject var coinColor: CoinColor
