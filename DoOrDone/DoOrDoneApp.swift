@@ -38,7 +38,9 @@ struct DoOrDoneApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-          HomeView().environmentObject(coinColor)
+          HomeView()
+              .environmentObject(coinColor)
+              .environmentObject(MonitoringNetworkState())
       }
       .onAppear {
           DispatchQueue.main.async {

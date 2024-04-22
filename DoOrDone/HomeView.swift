@@ -13,6 +13,8 @@ struct HomeView: View {
     
     @EnvironmentObject var coinColor: CoinColor
     
+    @EnvironmentObject var networkMonitor: MonitoringNetworkState
+    
     var body: some View {
             VStack {
                 Text("Do or Done!")
@@ -49,11 +51,13 @@ struct HomeView: View {
                 .padding()
                 
                 Spacer()
+
             }
             .padding()
     }
 }
 
 #Preview {
-    HomeView().environmentObject(CoinColor())
+    HomeView()
+        .environmentObject(CoinColor())
 }
