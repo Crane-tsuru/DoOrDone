@@ -11,6 +11,8 @@ import FirebaseAuth
 struct HomeView: View {
     let authenticated: Bool = (Auth.auth().currentUser != nil)
     
+    @EnvironmentObject var coinColor: CoinColor
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -20,7 +22,7 @@ struct HomeView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: SelectCoinView()) {
+                NavigationLink(destination: PredictCoinView().environmentObject(coinColor)) {
                     Capsule()
                         .frame(width: 200, height: 120)
                         .tint(.pink)
@@ -35,8 +37,8 @@ struct HomeView: View {
                 }
                 .padding()
                 
-                NavigationLink(destination: SettingsView()) {
-                    Label("設定", systemImage: "gear")
+                NavigationLink(destination: SettingsView().environmentObject(coinColor)) {
+                    Label("設定", systemImage: "gearshape")
                         .font(.largeTitle)
                         .foregroundColor(.gray)
                 }
@@ -50,5 +52,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView().environmentObject(CoinColor())
 }

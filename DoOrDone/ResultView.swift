@@ -14,6 +14,8 @@ struct ResultView: View {
     
     @ObservedObject var coinTossData: CoinTossData
     
+    @EnvironmentObject var coinColor: CoinColor
+    
     var body: some View {
         VStack {
             Spacer()
@@ -57,10 +59,10 @@ struct ResultView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $isHomeScreen) {
-            HomeView()
+            HomeView().environmentObject(coinColor)
         }
         .fullScreenCover(isPresented: $again) {
-            CoinFlippingView(coinTossData: coinTossData)
+            CoinFlippingView(coinTossData: coinTossData).environmentObject(coinColor)
         }
     }
 }

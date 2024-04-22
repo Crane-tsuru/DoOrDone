@@ -12,13 +12,20 @@ struct CoinFlippingView: View {
     @State var isHeads = false
     @State var degreesToFlip: Int = 0
     
+    
     @ObservedObject var coinTossData: CoinTossData
+
+    @EnvironmentObject var coinColor: CoinColor
     
     var body: some View {
         VStack {
             
+            Circle().foregroundColor(coinColor.headsColor).frame(width: 25, height: 25)
+            Circle().foregroundColor(coinColor.tailsColor).frame(width: 25, height: 25)
+            
             Spacer()
             Coin(isFlipping: $isFlipping, isHeads: $isHeads)
+                .environmentObject(coinColor)
                 .rotation3DEffect(
                     Angle(degrees: Double(degreesToFlip)),
                     axis: (x: CGFloat(0), y: CGFloat(10), z:CGFloat(0))
@@ -37,6 +44,7 @@ struct CoinFlippingView: View {
         }
         .fullScreenCover(isPresented: $isFlipping) {
             ResultView(coinTossData: coinTossData)
+                .environmentObject(coinColor)
         }
     }
     

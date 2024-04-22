@@ -6,32 +6,54 @@
 //
 
 import SwiftUI
-import FirebaseAuth
-
 
 struct SettingsView: View {
-    @State var isLogout = false
+    @EnvironmentObject var coinColor: CoinColor
+    
+    @State var changeHead = false
+    @State var changeTail = false
+
     
     var body: some View {
-        VStack {
-            Button(action: {
-                do {
-                    try Auth.auth().signOut()
-                    print("success")
-                    isLogout.toggle()
-                    
-                } catch let signOutError as NSError {
-                    print(signOutError)
+        NavigationView {
+            List {
+                Button(action: {
+                    changeHead = true
+                }) {
+                    HStack {
+                        Circle()
+                            .foregroundColor(coinColor.headsColor)
+                            .frame(width: 20, height: 20)
+                        Text("コインの表の色")
+                            .foregroundColor(coinColor.headsColor)
+                    }
                 }
-            }) {
-                Label("ログアウト", systemImage: "arrowshape.turn.up.left")
+                
+                Button(action: {
+                    changeTail = true
+                }) {
+                    HStack {
+                        Circle()
+                            .foregroundColor(coinColor.tailsColor)
+                            .frame(width: 20, height: 20)
+                        Text("コインの裏の色")
+                            .foregroundColor(coinColor.tailsColor)
+                    }
+                }
             }
-        }.fullScreenCover(isPresented: $isLogout) {
-            AuthenticationView()
+            .navigationTitle("設定")
+            .sheet(isPresented: $changeHead) {
+                SelectColorView(isHead: true, myColor: coinColor.headsColor)
+                    .environmentObject(coinColor)
+            }
+            .sheet(isPresented: $changeTail) {
+                SelectColorView(isHead: false, myColor: coinColor.tailsColor)
+                    .environmentObject(coinColor)
+            }
         }
     }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView().environmentObject(CoinColor())
 }

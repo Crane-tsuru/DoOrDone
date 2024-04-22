@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     FirebaseApp.configure()
@@ -19,12 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if error != nil{
             print("Auth Error :\(error!.localizedDescription)")
         }
-
         
         // 認証情報の取得
-        guard let user = authResult?.user else { return }
-        let isAnonymous = user.isAnonymous  // true
-        let uid = user.uid
         return
     }
 
@@ -36,12 +33,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct DoOrDoneApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
+  var coinColor = CoinColor()
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        AuthenticationView()
+          HomeView().environmentObject(coinColor)
+      }
+      .onAppear {
+          DispatchQueue.main.async {
+              Task {
+                  await coinColor.getMyColor_DB()
+              }
+          }
       }
     }
   }
