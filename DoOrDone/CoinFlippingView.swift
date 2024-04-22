@@ -20,9 +20,6 @@ struct CoinFlippingView: View {
     var body: some View {
         VStack {
             
-            Circle().foregroundColor(coinColor.headsColor).frame(width: 25, height: 25)
-            Circle().foregroundColor(coinColor.tailsColor).frame(width: 25, height: 25)
-            
             Spacer()
             Coin(isFlipping: $isFlipping, isHeads: $isHeads)
                 .environmentObject(coinColor)
