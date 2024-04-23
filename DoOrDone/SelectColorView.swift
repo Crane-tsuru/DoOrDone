@@ -18,6 +18,8 @@ struct SelectColorView: View {
     
     @State var isAlert = false // flag to show alert
     
+    @Binding var isSheet: Bool
+    
     var body: some View {
         VStack {
             ZStack {
@@ -89,11 +91,11 @@ struct SelectColorView: View {
             Spacer()
         }
         .alert(isPresented: $isAlert) {
-            Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: {}))
+            Alert(title: Text("保存しました"), dismissButton: .default(Text("戻る"), action: { isSheet = false}))
         }
     }
 }
 
 #Preview {
-    SelectColorView(isHead: true, myColor: Color.green) .environmentObject(CoinColor())
+    SelectColorView(isHead: true, myColor: Color.green, isSheet: .constant(true)) .environmentObject(CoinColor())
 }

@@ -14,7 +14,7 @@ struct EntryView: View {
     
     var body: some View {
         
-        VStack {
+        NavigationStack {
             if networkMonitor.isConnected {
                 HomeView()
                     .environmentObject(coinColor)

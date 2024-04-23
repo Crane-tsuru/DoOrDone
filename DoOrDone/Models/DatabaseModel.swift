@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 
 struct DBData: Codable, Identifiable {
@@ -27,7 +28,6 @@ struct DBData: Codable, Identifiable {
 }
 
 let db = Firestore.firestore()
-let collectionName_Users = "users"
 
 extension DBData {
     
@@ -52,7 +52,7 @@ func fetchMyData(userID: String) async -> [DBData] {
     var allData: [DBData] = []
     
     do {
-        let querySnapshot = try await db.collection(userID).getDocuments()
+        let querySnapshot = try await db.collection(userID).order(by: "date").getDocuments()
         for document in querySnapshot.documents {
             try allData.append(document.data(as: DBData.self))
         }
