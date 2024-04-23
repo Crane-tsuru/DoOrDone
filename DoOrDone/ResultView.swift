@@ -59,10 +59,13 @@ struct ResultView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $isHomeScreen) {
-            HomeView().environmentObject(coinColor)
+            EntryView()
+                .environmentObject(coinColor)
+                .environmentObject(MonitoringNetworkState())
         }
         .fullScreenCover(isPresented: $again) {
-            CoinFlippingView(coinTossData: coinTossData).environmentObject(coinColor)
+            CoinFlippingView(coinTossData: coinTossData)
+                .environmentObject(coinColor)
         }
     }
 }
