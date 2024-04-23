@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 
 struct DBData: Codable, Identifiable {
@@ -32,9 +33,10 @@ let collectionName_Users = "users"
 extension DBData {
     
     func save(userID: String) async {
+        guard let user = Auth.auth().currentUser else { return }
         // Add a new document in collection
         do {
-            try await db.collection(userID).document(id.uuidString).setData([
+            try await db.collection(collectionName_Users).document(String(user.uid)).setData([
                 "id": id.uuidString,
                 "date": date,
                 "prediction": prediction,

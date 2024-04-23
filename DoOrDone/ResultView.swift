@@ -61,7 +61,6 @@ struct ResultView: View {
         .fullScreenCover(isPresented: $isHomeScreen) {
             EntryView()
                 .environmentObject(coinColor)
-                .environmentObject(MonitoringNetworkState())
         }
         .fullScreenCover(isPresented: $again) {
             CoinFlippingView(coinTossData: coinTossData)
