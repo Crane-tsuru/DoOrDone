@@ -52,7 +52,7 @@ func fetchMyData(userID: String) async -> [DBData] {
     var allData: [DBData] = []
     
     do {
-        let querySnapshot = try await db.collection(userID).order(by: "date").getDocuments()
+        let querySnapshot = try await db.collection(userID).order(by: "date", descending: true).getDocuments()
         for document in querySnapshot.documents {
             try allData.append(document.data(as: DBData.self))
         }
