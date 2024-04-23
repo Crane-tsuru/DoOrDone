@@ -24,4 +24,4 @@ class CoinTossData: ObservableObject, Identifiable {
 let judgeMember = ["表", "裏"]
 let resultWord = ["アタリ", "ハズレ"]
 let message: [Bool: [String]] = [true: ["やってみよう！", "やっぱりやめておこう…"],
-                                   false: ["やらなくていい！", "少しでいいから始めてみない？"]]
+                                   false: ["少しでいいから始めてみない？", "やらなくていい！"]]
