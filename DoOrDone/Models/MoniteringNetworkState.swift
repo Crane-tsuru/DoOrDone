@@ -5,7 +5,7 @@
 //  Created by 鶴見駿 on 2024/04/23.
 //
 
-import Foundation
+import SwiftUI
 import Network
 
 class MonitoringNetworkState: ObservableObject {
@@ -29,5 +29,14 @@ class MonitoringNetworkState: ObservableObject {
                 }
             }
         }
+    }
+}
+
+@ViewBuilder
+func disconnectedNetowork() -> some View {
+    VStack {
+        Text("ネットワークに繋いでください")
+            .font(.largeTitle)
+            .bold()
     }
 }
