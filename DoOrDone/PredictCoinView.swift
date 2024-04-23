@@ -23,7 +23,7 @@ struct PredictCoinView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(coinColor.headsColor.gradient)
                     .frame(width: 200, height: 150)
-                    .overlay(Text(judgeMember[0]).font(.title))
+                    .overlay(Text(judgeMember[0] + "\nやりたい").font(.title))
                     .foregroundColor(.white)
             }
         
@@ -38,7 +38,7 @@ struct PredictCoinView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(coinColor.tailsColor.gradient)
                     .frame(width: 200, height:  150)
-                    .overlay(Text(judgeMember[1]).font(.title).foregroundColor(.white))
+                    .overlay(Text(judgeMember[1] + "\nやりたくない").font(.title).foregroundColor(.white))
             }
                 
             Spacer()
