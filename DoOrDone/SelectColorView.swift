@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct SelectColorView: View {
+    
     @EnvironmentObject var coinColor: CoinColor
     
     let isHead: Bool
@@ -19,20 +20,35 @@ struct SelectColorView: View {
     
     var body: some View {
         VStack {
-            VStack(alignment: .center) {
+            ZStack {
                 Circle()
                     .foregroundColor(myColor)
                     .frame(width: 100, height: 100)
                     .padding()
+                    .zIndex(1.0)
+                
+                Circle()
+                    .stroke(lineWidth: 5)
+                    .frame(width: 105, height: 105)
+                    .foregroundColor(isHead ? .gray : .black)
             }
             
             HStack {
                 Text(isHead ? "裏面の色" : "表面の色")
                 
-                Circle()
-                    .foregroundColor(isHead ? coinColor.tailsColor : coinColor.headsColor)
-                    .frame(width: 25, height: 25)
-                    .padding()
+                ZStack {
+                    
+                    Circle()
+                        .foregroundColor(isHead ? coinColor.tailsColor : coinColor.headsColor)
+                        .frame(width: 25, height: 25)
+                        .padding()
+                        .zIndex(1.0)
+                    
+                    Circle()
+                        .stroke(lineWidth: 2.0)
+                        .frame(width: 27, height: 27)
+                        .foregroundColor(isHead ? .black : .gray)
+                }
             }
             
             

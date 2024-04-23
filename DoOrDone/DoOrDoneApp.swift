@@ -33,19 +33,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct DoOrDoneApp: App {
   // register app delegate for Firebase setup
   @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-  var coinColor = CoinColor()
 
   var body: some Scene {
     WindowGroup {
       NavigationView {
-          HomeView().environmentObject(coinColor)
-      }
-      .onAppear {
-          DispatchQueue.main.async {
-              Task {
-                  await coinColor.getMyColor_DB()
-              }
-          }
+          EntryView()
+              .environmentObject(CoinColor())
+              .environmentObject(MonitoringNetworkState())
       }
     }
   }

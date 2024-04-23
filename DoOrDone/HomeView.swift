@@ -13,44 +13,51 @@ struct HomeView: View {
     
     @EnvironmentObject var coinColor: CoinColor
     
+    @EnvironmentObject var networkMonitor: MonitoringNetworkState
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Do or Done!")
+        VStack {
+            Text("Do or Done!")
+                .font(.largeTitle)
+                .bold()
+                
+            Spacer()
+                
+            NavigationLink(destination: PredictCoinView().environmentObject(coinColor)) {
+                Capsule()
+                    .frame(width: 200, height: 120)
+                    .tint(.pink)
+                    .overlay(Text("コイントス").font(.largeTitle).foregroundColor(.white))
+            }.padding()
+                
+            Spacer()
+                
+            NavigationLink(destination: LogListView()) {
+                Label("履歴", systemImage: "square.stack.3d.up.fill")
                     .font(.largeTitle)
-                    .bold()
+                    .foregroundColor(.green)
+                    .opacity(authenticated ? 1.0 : 0.2)
+            }
+            .scaleEffect(1.5)
+            .padding()
                 
-                Spacer()
+            Spacer()
                 
-                NavigationLink(destination: PredictCoinView().environmentObject(coinColor)) {
-                    Capsule()
-                        .frame(width: 200, height: 120)
-                        .tint(.pink)
-                        .overlay(Text("コイントス").font(.largeTitle).foregroundColor(.white))
-                }.padding()
-                
-                NavigationLink(destination: LogListView()) {
-                    Label("履歴", systemImage: "square.stack.3d.up.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.green)
-                        .opacity(authenticated ? 1.0 : 0.2)
-                }
-                .padding()
-                
-                NavigationLink(destination: SettingsView().environmentObject(coinColor)) {
+            NavigationLink(destination: SettingsView().environmentObject(coinColor)) {
                     Label("設定", systemImage: "gearshape")
                         .font(.largeTitle)
                         .foregroundColor(.gray)
                 }
                 .padding()
                 
-                Spacer()
+            Spacer()
+
             }
             .padding()
-        }
     }
 }
 
 #Preview {
-    HomeView().environmentObject(CoinColor())
+    HomeView()
+        .environmentObject(CoinColor())
 }

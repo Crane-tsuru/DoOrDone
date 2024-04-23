@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F324F4122BCD791C00CFFDBD /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F324F4112BCD791C00CFFDBD /* DateFormat.swift */; };
+		F39686522BD7519000693B36 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39686512BD7519000693B36 /* EntryView.swift */; };
 		F39E907E2BCA38F50059CC41 /* DoOrDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */; };
 		F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39E907F2BCA38F50059CC41 /* HomeView.swift */; };
 		F39E90822BCA38F80059CC41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39E90812BCA38F80059CC41 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		F39F9B6D2BD090250002C0A5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */; };
 		F39F9B6F2BD091980002C0A5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39F9B6E2BD091980002C0A5 /* SettingsView.swift */; };
 		F3A484AC2BD107960029AB1E /* SelectColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A484AB2BD107960029AB1E /* SelectColorView.swift */; };
+		F3AA3FD62BD72A5200980C1E /* MoniteringNetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AA3FD52BD72A5200980C1E /* MoniteringNetworkState.swift */; };
 		F3CAE5D92BD22E620086763B /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAE5D82BD22E620086763B /* DatabaseModel.swift */; };
 		F3CAE5DB2BD2A2570086763B /* CoinColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CAE5DA2BD2A2570086763B /* CoinColor.swift */; };
 		F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */; };
@@ -51,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		F324F4112BCD791C00CFFDBD /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		F39686512BD7519000693B36 /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		F39E907A2BCA38F50059CC41 /* DoOrDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoOrDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoOrDoneApp.swift; sourceTree = "<group>"; };
 		F39E907F2BCA38F50059CC41 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 		F39F9B6C2BD090250002C0A5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F39F9B6E2BD091980002C0A5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F3A484AB2BD107960029AB1E /* SelectColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorView.swift; sourceTree = "<group>"; };
+		F3AA3FD52BD72A5200980C1E /* MoniteringNetworkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoniteringNetworkState.swift; sourceTree = "<group>"; };
 		F3CAE5D82BD22E620086763B /* DatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		F3CAE5DA2BD2A2570086763B /* CoinColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinColor.swift; sourceTree = "<group>"; };
 		F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				F39E90AF2BCA3D810059CC41 /* Models */,
 				F39E907D2BCA38F50059CC41 /* DoOrDoneApp.swift */,
 				F39E907F2BCA38F50059CC41 /* HomeView.swift */,
+				F39686512BD7519000693B36 /* EntryView.swift */,
 				F39E90A72BCA3A820059CC41 /* PredictCoinView.swift */,
 				F39E90AD2BCA3CF00059CC41 /* CoinFlippingView.swift */,
 				F39E90B22BCA444B0059CC41 /* ResultView.swift */,
@@ -177,6 +182,7 @@
 				F3CAE5D82BD22E620086763B /* DatabaseModel.swift */,
 				F324F4112BCD791C00CFFDBD /* DateFormat.swift */,
 				F3DACDB12BCD4A1C00498F04 /* DeleteButton.swift */,
+				F3AA3FD52BD72A5200980C1E /* MoniteringNetworkState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39686522BD7519000693B36 /* EntryView.swift in Sources */,
 				F3CAE5D92BD22E620086763B /* DatabaseModel.swift in Sources */,
 				F39E90802BCA38F50059CC41 /* HomeView.swift in Sources */,
 				F3CAE5DB2BD2A2570086763B /* CoinColor.swift in Sources */,
@@ -336,6 +343,7 @@
 				F39E90AC2BCA3CD90059CC41 /* Coin.swift in Sources */,
 				F3DACDB22BCD4A1C00498F04 /* DeleteButton.swift in Sources */,
 				F39E90B32BCA444B0059CC41 /* ResultView.swift in Sources */,
+				F3AA3FD62BD72A5200980C1E /* MoniteringNetworkState.swift in Sources */,
 				F3A484AC2BD107960029AB1E /* SelectColorView.swift in Sources */,
 				F39E90A82BCA3A820059CC41 /* PredictCoinView.swift in Sources */,
 				F324F4122BCD791C00CFFDBD /* DateFormat.swift in Sources */,
