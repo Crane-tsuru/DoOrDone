@@ -28,15 +28,13 @@ struct DBData: Codable, Identifiable {
 }
 
 let db = Firestore.firestore()
-let collectionName_Users = "users"
 
 extension DBData {
     
     func save(userID: String) async {
-        guard let user = Auth.auth().currentUser else { return }
         // Add a new document in collection
         do {
-            try await db.collection(collectionName_Users).document(String(user.uid)).setData([
+            try await db.collection(userID).document(id.uuidString).setData([
                 "id": id.uuidString,
                 "date": date,
                 "prediction": prediction,
